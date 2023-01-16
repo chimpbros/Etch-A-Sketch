@@ -4,13 +4,8 @@ body {
     box-sizing: border-box;
 }
 
-.grid {
-    border: 1px solid black;
-    height: 14px;
-    width: 14px;
-}
-
 .container {
     display: flex;
     flex-wrap: wrap;
+    border: 1px solid black;
 }
