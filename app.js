@@ -13,13 +13,22 @@ function newGrid(size){
             container.appendChild(grid);
             grid.style.width = (256/size) + 'px';
             grid.style.height = (256/size) + 'px';
+            grid.style.userSelect = 'none';
     }
 }
 // change grid's background color when mouse hover
 function changeColor(){
     const grids = document.querySelectorAll('.grid');
-    grids.forEach(grid => grid.addEventListener('mouseover', function(){
-        this.style.backgroundColor = 'red';
+    grids.forEach(grid => grid.addEventListener('mousedown', function(){
+        isMouseDown = true;
+    }));
+    grids.forEach(grid => grid.addEventListener('mousemove', function(){
+        if(isMouseDown){
+            this.style.backgroundColor = 'red';
+        }
+    }));
+    grids.forEach(grid => grid.addEventListener('mouseup', function(){
+        isMouseDown = false;
     }));
 }
 // delete existing grid
@@ -31,6 +40,7 @@ function rmGrid(){
 const container = document.querySelector('.container');
 container.style.width = '256px';
 container.style.height = '256px';
+let isMouseDown = false;
 const createBtn = document.querySelector('.create-btn');
 const clearBtn = document.querySelector('.clear-btn');
 
