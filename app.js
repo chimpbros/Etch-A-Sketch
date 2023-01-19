@@ -11,20 +11,20 @@ function newGrid(size){
             const grid = document.createElement('div');
             grid.className = 'grid';
             container.appendChild(grid);
-            grid.style.width = (256/size) + 'px';
-            grid.style.height = (256/size) + 'px';
+            grid.style.width = (500/size) + 'px';
+            grid.style.height = (500/size) + 'px';
             grid.style.userSelect = 'none';
     }
 }
 // change grid's background color when mouse hover
-function changeColor(){
+function changeColor(color){
     const grids = document.querySelectorAll('.grid');
     grids.forEach(grid => grid.addEventListener('mousedown', function(){
         isMouseDown = true;
     }));
     grids.forEach(grid => grid.addEventListener('mousemove', function(){
         if(isMouseDown){
-            this.style.backgroundColor = 'red';
+            this.style.backgroundColor = color;
         }
     }));
     grids.forEach(grid => grid.addEventListener('mouseup', function(){
@@ -60,18 +60,25 @@ function rainbow(){
     }));
 }
 
+function updateColor(){
+    let currentColor = document.querySelector('#color-picker').value;
+    changeColor(currentColor);
+}
+
 const container = document.querySelector('.container');
-container.style.width = '256px';
-container.style.height = '256px';
+container.style.width = '500px';
+container.style.height = '500px';
 let isMouseDown = false;
 const createBtn = document.querySelector('.create-btn');
 const clearBtn = document.querySelector('.clear-btn');
 const rainbowBtn = document.querySelector('.rainbow-btn');
+newGrid(24);
+updateColor();
 createBtn.addEventListener('click', function(){
     rmGrid();
     let gridSize = input();
     newGrid(gridSize);
-    changeColor();
+    updateColor();
 });
 clearBtn.addEventListener('click', clearGrid);
 rainbowBtn.addEventListener('click', rainbow);

@@ -2,10 +2,60 @@ body {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    background-color: #444444;
 }
 
 .container {
     display: flex;
     flex-wrap: wrap;
-    border: 1px solid black;
+    border: 15px solid #DA0037;
+    border-radius: 5px;
+    box-shadow: 10px 10px 10px #171717;
+    background-color: white;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.btn-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+[for=color-picker] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    color: #EDEDED;
+}
+
+.btn {
+    background-color: #DA0037;
+    color: #EDEDED;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 5px;
+    box-shadow: 5px 5px 5px #171717;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #EDEDED;
+    color: #171717;
+}
+
+.btn:active {
+    background-color: #EDEDED;
+    color: #171717;
 }

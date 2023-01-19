@@ -9,9 +9,20 @@
     <title>Etch-A-Sketch</title>
 </head>
 <body>
-    <button type="button" class="create-btn">create grid</button>
-    <button type="button" class="clear-btn">Clear</button>
-    <button type="button" class="rainbow-btn">rainbow</button>
-    <div class="container"></div>
+    <header>
+        <h1>Let's Sketch</h1>
+    </header>
+    <main>
+        <div class="btn-container">
+            <button type="button" class="create-btn btn">create grid</button>
+            <button type="button" class="clear-btn btn">Clear</button>
+            <button type="button" class="rainbow-btn btn">rainbow</button>
+            <label for="color-picker" class="btn">
+                choose a color:
+                <input type="color" id="color-picker" onchange="updateColor()">
+            </label>
+        </div>
+        <div class="container"></div>
+    </main>
 </body>
 </html>
