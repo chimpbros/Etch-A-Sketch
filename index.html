@@ -6,18 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="app.js" defer></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;600&display=swap" rel="stylesheet">
     <title>Etch-A-Sketch</title>
 </head>
 <body>
     <header>
         <h1>Let's Sketch</h1>
+        <p>Do you have the talent to be a pixel artist? Let's find out!</p>
     </header>
     <main>
         <div class="btn-container">
-            <button type="button" class="create-btn btn">create grid</button>
+            <label for="grid-size" class="label btn">
+                Pixel size:
+                <input type="range" id="grid-size" value="70" min="4" max="100" step="4" oninput="rangevalue.value=value"/>
+                <output id="rangevalue">70</output>
+            </label>
             <button type="button" class="clear-btn btn">Clear</button>
             <button type="button" class="rainbow-btn btn">rainbow</button>
-            <label for="color-picker" class="btn">
+            <label for="color-picker" class="label btn">
                 choose a color:
                 <input type="color" id="color-picker" onchange="updateColor()">
             </label>

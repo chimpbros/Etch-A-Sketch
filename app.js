@@ -11,8 +11,8 @@ function newGrid(size){
             const grid = document.createElement('div');
             grid.className = 'grid';
             container.appendChild(grid);
-            grid.style.width = (500/size) + 'px';
-            grid.style.height = (500/size) + 'px';
+            grid.style.width = (ctrWh/size) + 'px';
+            grid.style.height = (ctrWh/size) + 'px';
             grid.style.userSelect = 'none';
     }
 }
@@ -65,20 +65,33 @@ function updateColor(){
     changeColor(currentColor);
 }
 
-const container = document.querySelector('.container');
-container.style.width = '500px';
-container.style.height = '500px';
-let isMouseDown = false;
-const createBtn = document.querySelector('.create-btn');
-const clearBtn = document.querySelector('.clear-btn');
-const rainbowBtn = document.querySelector('.rainbow-btn');
-newGrid(24);
-updateColor();
-createBtn.addEventListener('click', function(){
+function handleInputChange(e) {
+    let target = e.target;
+    if (e.target.type !== 'range') {
+      target = document.getElementById('range')
+    } 
+    const min = target.min;
+    const max = target.max;
+    const val = target.value;
+    
+    target.style.backgroundSize = (val - min) * 100 / (max - min) + '% 100%';
     rmGrid();
-    let gridSize = input();
+    let gridSize = val;
     newGrid(gridSize);
     updateColor();
-});
+  }
+
+const container = document.querySelector('.container');
+const ctrWh = 500;
+container.style.maxWidth = ctrWh + 'px';
+container.style.maxHeight = ctrWh + 'px';
+let isMouseDown = false;
+const clearBtn = document.querySelector('.clear-btn');
+const rainbowBtn = document.querySelector('.rainbow-btn');
+const rangeInputs = document.querySelector('#grid-size');
+newGrid(24);
+updateColor();
 clearBtn.addEventListener('click', clearGrid);
 rainbowBtn.addEventListener('click', rainbow);
+rangeInputs.addEventListener('input',handleInputChange);
+
