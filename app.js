@@ -82,7 +82,7 @@ function handleInputChange(e) {
   }
 
 const container = document.querySelector('.container');
-const ctrWh = 500;
+const ctrWh = 400;
 container.style.maxWidth = ctrWh + 'px';
 container.style.maxHeight = ctrWh + 'px';
 let isMouseDown = false;
